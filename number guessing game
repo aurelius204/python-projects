@@ -1,0 +1,24 @@
+import random
+while True:
+    print("Welcome to the number guessing game.\nYou have 7 chances to guess the number.Let's start")
+    A=int(input("Lower range is "))
+    B=int(input("Upper range is "))
+    print(f"You have 7 chances to guess the number between {A} and {B}.Let's Start!")
+    X=random.randint(A,B)
+    C=7      #number of chances to guess number
+    GC=0      #gives guess count 
+    while GC<C:
+        GC+=1
+        G=int(input("Guess a number "))
+        if G==X:
+            print("You guessed the correct number.Congratulations!")
+            break
+        elif GC>=C and G!=X:
+            print(f"Sorry!The number was {X}.Better luck next time.")
+        elif G>X:
+            print("Too High.Guess a lower number")
+        elif G<X:
+            print("Too Low.Guess a higher number")
+    play=input("Play again(y/n):").lower()
+    if play!="y":
+        break

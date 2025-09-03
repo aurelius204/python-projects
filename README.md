@@ -1,1 +1,3 @@
-# python-projects
+# number guessing game
+# word guessing game
+

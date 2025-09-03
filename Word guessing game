@@ -1,0 +1,32 @@
+import random
+while True:
+    print("Welcome to word guessing game.Let's get started.you have 12 chances to guess the the world.")
+    word=["sweety","arjun","aditya","anvika","akshu","abhinav","charan"]
+    random_word=random.choice(word)
+    blanks=["_"]*len(random_word)
+    chances=12
+    used_letter=[]
+    while chances>0:
+        chances-=1
+        guess=input("guess a character: ").lower()
+        if guess in used_letter:
+            print("You already guessed the letter.",f"you have {chances} chances left")
+            continue
+        used_letter.append(guess)
+        if guess in random_word:
+            for i , char in enumerate(random_word):
+                if char== guess:
+                    blanks[i]=guess
+                    print(''.join(blanks),f"you have {chances} chances left")
+            if "_" not in blanks:
+                print(f"Congratulations!You guessed the word {random_word}")
+                break
+        else:
+            print("Wrong guess.guess again",f"you have {chances} chances left")
+            print(''.join(blanks))
+    if chances==0:
+        print(f"out of choices.the word was {random_word}")
+        break
+    play=input("play again(y/n):").lower()
+    if play!="y":
+        break
